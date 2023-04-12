@@ -37,8 +37,11 @@
                         </div>
                         <div class="form-group">
                             <label for="Kelas">Kelas</label>
-                            <input type="text" name="Kelas" class="form-control" id="Kelas"
-                                aria-describedby="Kelas">
+                            <select name="Kelas" class="form-control">
+                                @foreach ($kelas as $Kelas)
+                                <option value="{{$Kelas->id}}"> {{$Kelas->nama_kelas}} </option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="Jurusan">Jurusan</label>
