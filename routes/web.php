@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MahasiswaController;
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 
 /*
@@ -25,3 +26,4 @@ Auth::routes();
 Route::resource('mahasiswas', MahasiswaController::class);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/search', [MahasiswaController::class, 'search'])->name('search');
+Route::get('/khs/{Nim}', [MahasiswaController::class, 'khs'])->name('khs');

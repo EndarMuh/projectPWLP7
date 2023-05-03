@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mahasiswa;
+use App\Models\Mahasiswa_Matakuliah;
+use App\Models\Matakuliah;
 use Illuminate\Http\Request;
 use App\Models\Kelas;
 
@@ -119,5 +121,15 @@ Route::resource('mahasiswa', MahasiswaController::class);
         $keyword = $request->search;
         $mahasiswas = Mahasiswa::where('Nama', 'like', '%' . $keyword . '%')->paginate(5);
         return view('mahasiswas.index', compact('mahasiswas'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+    public function khs($Nim)
+    {
+        //$Mahasiswa = Mahasiswa::find($nim);
+        $Mahasiswa = Mahasiswa::find($Nim);
+        $Matakuliah = Matakuliah::all();
+        //$MataKuliah = $Mahasiswa->MataKuliah()->get();
+        $Mahasiswa_Matakuliah = Mahasiswa_Matakuliah::where('mahasiswa_id', '=', $Nim)->get();
+        return view('mahasiswas.khs', ['Mahasiswa' => $Mahasiswa], ['Mahasiswa_Matakuliah' => $Mahasiswa_Matakuliah], ['Matakuliah' => $Matakuliah], compact('Mahasiswa_Matakuliah'));
     }
 };

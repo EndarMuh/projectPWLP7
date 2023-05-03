@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kelas', function (Blueprint $table) {
+        Schema::create('mahasiswas_matakuliah', function (Blueprint $table) {
             $table->id()->primary();
             $table->unsignedBigInteger('mahasiswa_id')->nullable();
             $table->unsignedBigInteger('matakuliah_id')->nullable();
