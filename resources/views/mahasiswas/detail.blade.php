@@ -11,7 +11,8 @@
             <div class="card-body">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item"><b>Nim: </b>{{$Mahasiswa->Nim}}</li>
-                    <li class="list-group-item"><b>Nama: </b>{{$Mahasiswa->Nama}}</li>
+                    <li class="list-group-item"><b>Nama: </b><img width="100px"
+                            source="{{ asset('storage/' . $Mahasiswa->featured_image)}}"></li>
                     <li class="list-group-item"><b>Tanggal Lahir: </b>{{$Mahasiswa->Tanggal_Lahir}}</li>
                     <li class="list-group-item"><b>Kelas: </b>{{$Mahasiswa->Kelas->nama_kelas}}</li>
                     <li class="list-group-item"><b>Jurusan: </b>{{$Mahasiswa->Jurusan}}</li>
